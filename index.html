@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional haircut salon offering men's and women's cuts, styling, and coloring services">
+    <title>Elite Cuts - Professional Hair Salon</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <h1>Elite Cuts</h1>
+                </div>
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#hours" class="nav-link">Hours</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Elite Cuts</h1>
+            <p class="hero-tagline">Where Style Meets Excellence</p>
+            <p class="hero-description">Transform your look with our expert stylists and premium services</p>
+            <a href="#contact" class="btn btn-primary">Book Appointment</a>
+        </div>
+    </section>
+
+    <!-- Photo Gallery Section -->
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <h2 class="section-title">Our Work</h2>
+            <p class="section-subtitle">See the transformations we create every day</p>
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Gallery images will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close lightbox">&times;</button>
+        <button class="lightbox-prev" id="lightboxPrev" aria-label="Previous image">&#8249;</button>
+        <button class="lightbox-next" id="lightboxNext" aria-label="Next image">&#8250;</button>
+        <img src="" alt="" id="lightboxImage" class="lightbox-image">
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">Professional hair services tailored to you</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">✂️</div>
+                    <h3>Men's Haircut</h3>
+                    <p>Classic and modern cuts tailored to your style</p>
+                    <span class="service-price">$35</span>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💇‍♀️</div>
+                    <h3>Women's Haircut</h3>
+                    <p>Expert cuts and styling for every hair type</p>
+                    <span class="service-price">$55</span>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3>Hair Coloring</h3>
+                    <p>Full color, highlights, and balayage services</p>
+                    <span class="service-price">$85+</span>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">✨</div>
+                    <h3>Hair Styling</h3>
+                    <p>Blowouts, updos, and special occasion styling</p>
+                    <span class="service-price">$45+</span>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🧴</div>
+                    <h3>Hair Treatment</h3>
+                    <p>Deep conditioning and repair treatments</p>
+                    <span class="service-price">$40</span>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">👶</div>
+                    <h3>Kids' Cuts</h3>
+                    <p>Fun and friendly cuts for children</p>
+                    <span class="service-price">$25</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">About Elite Cuts</h2>
+                    <p>For over 15 years, Elite Cuts has been the premier destination for quality haircuts and styling in the community. Our experienced team of professional stylists is dedicated to helping you look and feel your best.</p>
+                    <p>We stay current with the latest trends and techniques while maintaining the classic styles that never go out of fashion. Every visit is personalized to your unique style and preferences.</p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <span class="stat-number">15+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">10,000+</span>
+                            <span class="stat-label">Happy Clients</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">8</span>
+                            <span class="stat-label">Expert Stylists</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hours & Location Section -->
+    <section id="hours" class="hours-section">
+        <div class="container">
+            <div class="hours-content">
+                <div class="hours-info">
+                    <h2 class="section-title">Hours & Location</h2>
+                    <div class="hours-list">
+                        <div class="hours-item">
+                            <span class="day">Monday - Friday</span>
+                            <span class="time">9:00 AM - 7:00 PM</span>
+                        </div>
+                        <div class="hours-item">
+                            <span class="day">Saturday</span>
+                            <span class="time">8:00 AM - 6:00 PM</span>
+                        </div>
+                        <div class="hours-item">
+                            <span class="day">Sunday</span>
+                            <span class="time">10:00 AM - 4:00 PM</span>
+                        </div>
+                    </div>
+                    <div class="location-info">
+                        <h3>Visit Us</h3>
+                        <p>123 Main Street<br>Your City, ST 12345</p>
+                        <p><strong>Phone:</strong> (555) 123-4567</p>
+                        <p><strong>Email:</strong> info@elitecuts.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact/Booking Form Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Book Your Appointment</h2>
+            <p class="section-subtitle">Fill out the form below and we'll get back to you soon</p>
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="service">Service Interested In</label>
+                    <select id="service" name="service">
+                        <option value="">Select a service</option>
+                        <option value="mens-cut">Men's Haircut</option>
+                        <option value="womens-cut">Women's Haircut</option>
+                        <option value="coloring">Hair Coloring</option>
+                        <option value="styling">Hair Styling</option>
+                        <option value="treatment">Hair Treatment</option>
+                        <option value="kids-cut">Kids' Cuts</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="date">Preferred Date</label>
+                    <input type="date" id="date" name="date">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Request</button>
+                <div class="form-message" id="formMessage"></div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Elite Cuts</h3>
+                    <p>Your trusted local hair salon for over 15 years.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>123 Main Street<br>Your City, ST 12345</p>
+                    <p>Phone: (555) 123-4567</p>
+                    <p>Email: info@elitecuts.com</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">Facebook</a>
+                        <a href="#" aria-label="Instagram">Instagram</a>
+                        <a href="#" aria-label="Twitter">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Elite Cuts. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
