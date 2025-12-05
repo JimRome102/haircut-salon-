@@ -50,7 +50,7 @@ window.addEventListener('scroll', () => {
 // Gallery Images Data
 const galleryImages = [
     { src: './images/haircut-9e113c86778d46108d80af7d1cd353fb.png', alt: 'Haircut service' },
-    { src: './images/screenshot.png', alt: 'Salon work' },
+    { src: './images/Screenshot 2025-12-05 at 10.14.05 AM.png', alt: 'Salon work' },
     { src: 'https://images.unsplash.com/photo-1562322140-8baeececf3df?w=800&h=800&fit=crop', alt: 'Professional haircut transformation' },
     { src: 'https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=800&h=800&fit=crop', alt: 'Stylist working on client' },
     { src: 'https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=800&h=800&fit=crop', alt: 'Modern salon interior' },
@@ -93,7 +93,16 @@ function createGalleryItem(image, index) {
     item.setAttribute('data-index', index);
     
     const img = document.createElement('img');
-    img.src = image.src;
+    // Encode the URL properly, but keep query strings intact for external URLs
+    if (image.src.startsWith('http')) {
+        img.src = image.src;
+    } else {
+        // Encode local file paths
+        const parts = image.src.split('/');
+        const filename = parts.pop();
+        const path = parts.join('/');
+        img.src = path ? `${path}/${encodeURIComponent(filename)}` : encodeURIComponent(filename);
+    }
     img.alt = image.alt;
     img.loading = 'lazy';
     
