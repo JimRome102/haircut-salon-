@@ -100,7 +100,7 @@ function createGalleryItem(image, index) {
         // Encode local file paths - handle paths with directories
         const pathParts = image.src.split('/');
         const encodedParts = pathParts.map((part, i) => {
-            // Don't encode the last part if it's empty (trailing slash) or if it's a directory
+            // Encode the filename (last part) but keep directory names as-is
             if (i === pathParts.length - 1 && part) {
                 return encodeURIComponent(part);
             } else if (part) {
@@ -112,6 +112,9 @@ function createGalleryItem(image, index) {
     }
     img.alt = image.alt;
     img.loading = 'lazy';
+    img.onerror = function() {
+        console.error('Failed to load image:', this.src);
+    };
     
     item.appendChild(img);
     item.addEventListener('click', () => openLightbox(index));
