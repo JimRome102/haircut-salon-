@@ -97,11 +97,18 @@ function createGalleryItem(image, index) {
     if (image.src.startsWith('http')) {
         img.src = image.src;
     } else {
-        // Encode local file paths
-        const parts = image.src.split('/');
-        const filename = parts.pop();
-        const path = parts.join('/');
-        img.src = path ? `${path}/${encodeURIComponent(filename)}` : encodeURIComponent(filename);
+        // Encode local file paths - handle paths with directories
+        const pathParts = image.src.split('/');
+        const encodedParts = pathParts.map((part, i) => {
+            // Don't encode the last part if it's empty (trailing slash) or if it's a directory
+            if (i === pathParts.length - 1 && part) {
+                return encodeURIComponent(part);
+            } else if (part) {
+                return part;
+            }
+            return '';
+        });
+        img.src = encodedParts.filter(p => p).join('/');
     }
     img.alt = image.alt;
     img.loading = 'lazy';
@@ -145,11 +152,18 @@ function updateLightboxImage() {
     if (image.src.startsWith('http')) {
         lightboxImage.src = image.src;
     } else {
-        // Encode local file paths
-        const parts = image.src.split('/');
-        const filename = parts.pop();
-        const path = parts.join('/');
-        lightboxImage.src = path ? `${path}/${encodeURIComponent(filename)}` : encodeURIComponent(filename);
+        // Encode local file paths - handle paths with directories
+        const pathParts = image.src.split('/');
+        const encodedParts = pathParts.map((part, i) => {
+            // Don't encode the last part if it's empty (trailing slash) or if it's a directory
+            if (i === pathParts.length - 1 && part) {
+                return encodeURIComponent(part);
+            } else if (part) {
+                return part;
+            }
+            return '';
+        });
+        lightboxImage.src = encodedParts.filter(p => p).join('/');
     }
     lightboxImage.alt = image.alt;
     lightboxCaption.textContent = image.alt;
