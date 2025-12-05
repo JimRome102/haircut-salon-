@@ -93,28 +93,9 @@ function createGalleryItem(image, index) {
     item.setAttribute('data-index', index);
     
     const img = document.createElement('img');
-    // Encode the URL properly, but keep query strings intact for external URLs
-    if (image.src.startsWith('http')) {
-        img.src = image.src;
-    } else {
-        // Encode local file paths - handle paths with directories
-        const pathParts = image.src.split('/');
-        const encodedParts = pathParts.map((part, i) => {
-            // Encode the filename (last part) but keep directory names as-is
-            if (i === pathParts.length - 1 && part) {
-                return encodeURIComponent(part);
-            } else if (part) {
-                return part;
-            }
-            return '';
-        });
-        img.src = encodedParts.filter(p => p).join('/');
-    }
+    img.src = image.src;
     img.alt = image.alt;
     img.loading = 'lazy';
-    img.onerror = function() {
-        console.error('Failed to load image:', this.src);
-    };
     
     item.appendChild(img);
     item.addEventListener('click', () => openLightbox(index));
@@ -160,23 +141,7 @@ function closeLightbox() {
 
 function updateLightboxImage() {
     const image = galleryImages[currentImageIndex];
-    // Encode the URL properly, but keep query strings intact for external URLs
-    if (image.src.startsWith('http')) {
-        lightboxImage.src = image.src;
-    } else {
-        // Encode local file paths - handle paths with directories
-        const pathParts = image.src.split('/');
-        const encodedParts = pathParts.map((part, i) => {
-            // Don't encode the last part if it's empty (trailing slash) or if it's a directory
-            if (i === pathParts.length - 1 && part) {
-                return encodeURIComponent(part);
-            } else if (part) {
-                return part;
-            }
-            return '';
-        });
-        lightboxImage.src = encodedParts.filter(p => p).join('/');
-    }
+    lightboxImage.src = image.src;
     lightboxImage.alt = image.alt;
     lightboxCaption.textContent = image.alt;
 }
