@@ -141,7 +141,16 @@ function closeLightbox() {
 
 function updateLightboxImage() {
     const image = galleryImages[currentImageIndex];
-    lightboxImage.src = image.src;
+    // Encode the URL properly, but keep query strings intact for external URLs
+    if (image.src.startsWith('http')) {
+        lightboxImage.src = image.src;
+    } else {
+        // Encode local file paths
+        const parts = image.src.split('/');
+        const filename = parts.pop();
+        const path = parts.join('/');
+        lightboxImage.src = path ? `${path}/${encodeURIComponent(filename)}` : encodeURIComponent(filename);
+    }
     lightboxImage.alt = image.alt;
     lightboxCaption.textContent = image.alt;
 }
