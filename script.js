@@ -123,10 +123,19 @@ function createGalleryItem(image, index) {
 }
 
 function populateGallery() {
+    if (!galleryGrid) {
+        console.error('Gallery grid element not found!');
+        return;
+    }
+    console.log('Populating gallery with', galleryImages.length, 'images');
     galleryImages.forEach((image, index) => {
         const galleryItem = createGalleryItem(image, index);
         galleryGrid.appendChild(galleryItem);
+        if (index < 2) {
+            console.log('Added image', index, ':', image.src);
+        }
     });
+    console.log('Gallery populated. Total items:', galleryGrid.children.length);
 }
 
 // Lightbox Functionality
@@ -261,7 +270,9 @@ if (dateInput) {
 
 // Initialize Gallery on Page Load
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('Initializing gallery with', galleryImages.length, 'images');
     populateGallery();
+    console.log('Gallery populated. First image:', galleryImages[0]);
 });
 
 // Intersection Observer for fade-in animations on scroll
